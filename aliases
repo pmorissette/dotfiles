@@ -1,7 +1,0 @@
-#!/bin/bash
-
-alias c='clear;ls'
-
-# git alias
-alias gs='git status'
-alias gl='git log'
