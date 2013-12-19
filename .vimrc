@@ -10,7 +10,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'kien/ctrlp.vim'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'sjl/gundo.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
@@ -58,8 +57,6 @@ nnoremap <leader>u :nohlsearch<CR>
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-" Load the Gundo window
-map <leader>g :GundoToggle<CR>
 "Git fugitive
 map <leader>gw :Gwrite<CR>
 map <leader>gs :Gstatus<CR>
