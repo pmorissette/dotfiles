@@ -21,6 +21,8 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mattn/emmet-vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'Blackrush/vim-gocode'
 
 let mapleader=" "
 inoremap jj <ESC>
@@ -223,3 +225,13 @@ let g:pymode_syntax_all = 1
 
 " Highlight "print" as function
 let g:pymode_syntax_print_as_function = 0
+
+" GOLANG
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+" auto gofmt
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
