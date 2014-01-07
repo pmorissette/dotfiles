@@ -89,13 +89,14 @@ set wildignore+=*.pyc,*.swp,*/env/*,*/node_modules/*,*/.git/*
 
 " Reload all buffers from file - good for when we don't use 
 " fugitive and want to refresh files without annoying confirmation
-fun! ReloadBuffers()
+function! ReloadBuffers()
     set noconfirm
     bufdo e!
     set confirm
-endfun
+    echo "Reload buffers?"
+endfunction
 
-nmap <leader>rb call ReloadBuffers()
+nmap <leader>b :call ReloadBuffers()<CR>
 
 " ==========================================================
 " Basic Settings
