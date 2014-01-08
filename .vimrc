@@ -20,6 +20,7 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mattn/emmet-vim'
+Bundle 'vim-scripts/pydoc.vim'
 
 let mapleader=" "
 inoremap jj <ESC>
@@ -96,7 +97,10 @@ function! ReloadBuffers()
     echo "Reload buffers?"
 endfunction
 
-nmap <leader>b :call ReloadBuffers()<CR>
+nmap <leader>rb :call ReloadBuffers()<CR>
+
+" pydoc
+let g:pydoc_cmd = "python -m pydoc"
 
 " ==========================================================
 " Basic Settings
@@ -183,8 +187,8 @@ map <F5> <Esc>:!clear;nosetests<CR>
 map <F9> <Esc>:PymodeLintAuto<CR>
 
 " Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
+" handled by pydoc plugin
+let g:pymode_doc = 0
 
 " Linting
 let g:pymode_lint = 1
@@ -195,7 +199,6 @@ let g:pymode_lint_on_write = 1
 
 " Load run code plugin
 let g:pymode_run = 1
-
 " Key for run python code
 let g:pymode_run_key = '<leader>r'
 
@@ -224,3 +227,5 @@ let g:pymode_rope = 0
 " Skip errors and warnings
 " E.g. "E501,W002", "E2,W" (Skip all Warnings and Errors startswith E2) and etc
 " let g:pymode_lint_ignore = "E501"
+" ignoring mccabe errors
+let g:pymode_lint_ignore = "C("
