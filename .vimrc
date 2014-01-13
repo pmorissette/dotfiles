@@ -228,4 +228,4 @@ let g:pymode_rope = 0
 " E.g. "E501,W002", "E2,W" (Skip all Warnings and Errors startswith E2) and etc
 " let g:pymode_lint_ignore = "E501"
 " ignoring mccabe errors
-let g:pymode_lint_ignore = "C("
+let g:pymode_lint_ignore = "C"
