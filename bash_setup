@@ -8,3 +8,6 @@ alias c='clear;ls'
 # git alias
 alias gs='git status'
 alias gl='git log'
+
+# vi mode for bash!
+set -o vi

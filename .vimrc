@@ -10,7 +10,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'kien/ctrlp.vim'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'sjl/gundo.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
@@ -23,6 +22,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'mattn/emmet-vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'Blackrush/vim-gocode'
+Bundle 'vim-scripts/pydoc.vim'
 
 let mapleader=" "
 inoremap jj <ESC>
@@ -31,8 +31,8 @@ inoremap jj <ESC>
 cmap W! !sudo tee % > /dev/null
 
 " open/close the quickfix window
-"nmap <leader>c :copen<CR>
-"nmap <leader>cc :cclose<CR>
+"nmap <leader>c :copen<cr>
+nmap <leader>x :cclose<cr>
 
 " close buffer but not split
 nmap <leader>C :b#<bar>bd#<CR><CR>
@@ -54,14 +54,18 @@ nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
 nnoremap <leader>h <c-w>h
+" window switching - also w/ ctrl key
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+imap <C-W> <C-O><C-W>
 " hide matches on <leader>space
 nnoremap <leader>u :nohlsearch<CR>
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-" Load the Gundo window
-map <leader>g :GundoToggle<CR>
 "Git fugitive
 map <leader>gw :Gwrite<CR>
 map <leader>gs :Gstatus<CR>
@@ -84,6 +88,21 @@ set t_Co=256
 " ctrlp
 set wildignore+=*.pyc,*.swp,*/env/*,*/node_modules/*,*/.git/*
 " let g:ctrlp_cmd = 'CtrlPMixed'
+
+
+" Reload all buffers from file - good for when we don't use 
+" fugitive and want to refresh files without annoying confirmation
+function! ReloadBuffers()
+    set noconfirm
+    bufdo e!
+    set confirm
+    echo "Reload buffers?"
+endfunction
+
+nmap <leader>rb :call ReloadBuffers()<CR>
+
+" pydoc
+let g:pydoc_cmd = "python -m pydoc"
 
 " ==========================================================
 " Basic Settings
@@ -158,7 +177,7 @@ let g:user_emmet_leader_key = '<c-e>'
 
 " You complete me
 " Close window w/ doc (preview window) when done insertion
-let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
 
 
 " PYTHON STUFF
@@ -169,43 +188,42 @@ map <F5> <Esc>:!clear;nosetests<CR>
 " Auto-pep
 map <F9> <Esc>:PymodeLintAuto<CR>
 
-" Load show documentation plugin
-let g:pymode_doc = 1
+" Documentation
+" handled by pydoc plugin
+let g:pymode_doc = 0
 
-" Key for show python documentation
-let g:pymode_doc_key = 'K'
+" Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_on_write = 1
+
+" virtualenvs
 
 " Load run code plugin
 let g:pymode_run = 1
-
 " Key for run python code
 let g:pymode_run_key = '<leader>r'
 
 " Auto jump to next lint error
 let g:pymode_lint_jump = 1
 
-" Load pylint code plugin
-let g:pymode_lint = 1
+" virtualenv
+let g:pymode_virtualenv = 1
 
-" Switch pylint, pyflakes, pep8, mccabe code-checkers
-" Can have multiply values "pep8,pyflakes,mcccabe"
-let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+" enable breakpoints
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = 'b'
 
-" Skip errors and warnings
-" E.g. "E501,W002", "E2,W" (Skip all Warnings and Errors startswith E2) and etc
-" let g:pymode_lint_ignore = "E501"
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-" Check code every save
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_unmodified = 1
+" Don't autofold code
+" let g:pymode_folding = 0
 
-" Auto open cwindow if errors found
-let g:pymode_lint_cwindow = 1
-
-" Maximum allowed mccabe complexity
-let g:pymode_lint_mccabe_complexity = 8
-
-" Load rope plugin
+" turn off rop
 let g:pymode_rope = 0
 
 " Key for set/unset breakpoint
@@ -225,6 +243,12 @@ let g:pymode_syntax_all = 1
 
 " Highlight "print" as function
 let g:pymode_syntax_print_as_function = 0
+
+" Skip errors and warnings
+" E.g. "E501,W002", "E2,W" (Skip all Warnings and Errors startswith E2) and etc
+" let g:pymode_lint_ignore = "E501"
+" ignoring mccabe errors
+let g:pymode_lint_ignore = "C"
 
 " GOLANG
 filetype off
