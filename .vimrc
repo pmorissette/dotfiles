@@ -181,7 +181,7 @@ let g:user_emmet_leader_key = '<c-e>'
 " PYTHON STUFF
 "
 " Run python (nose) tests
-map <F5> <Esc>:!clear;nosetests<CR>
+map <F5> <Esc>:!clear;nosetests -d<CR>
 
 " Auto-pep
 map <F9> <Esc>:PymodeLintAuto<CR>
