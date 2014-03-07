@@ -21,6 +21,9 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mattn/emmet-vim'
 Bundle 'vim-scripts/pydoc.vim'
+" Golang
+Bundle 'Blackrush/vim-gocode'
+Bundle 'rjohnsondev/vim-compiler-go'
 
 let mapleader=" "
 inoremap jj <ESC>
@@ -229,3 +232,8 @@ let g:pymode_rope = 0
 " let g:pymode_lint_ignore = "E501"
 " ignoring mccabe errors
 let g:pymode_lint_ignore = "C"
+
+
+" GO STUFF
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+let g:golang_goroot = $GOROOT
