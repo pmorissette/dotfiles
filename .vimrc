@@ -27,6 +27,7 @@ Bundle 'rjohnsondev/vim-compiler-go'
 
 let mapleader=" "
 inoremap jj <ESC>
+set pastetoggle=<F10>
 
 " sudo write this
 cmap W! !sudo tee % > /dev/null
