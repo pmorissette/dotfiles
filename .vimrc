@@ -248,5 +248,6 @@ let g:golang_goroot = $GOROOT
 
 
 " Clojure
+autocmd FileType clojure map <F4> <Esc>macpp`a<Esc>
 autocmd FileType clojure map <F5> <Esc>ma(cpp`a<Esc>
 autocmd FileType clojure map <F6> <Esc>:Eval (stop)<CR>
