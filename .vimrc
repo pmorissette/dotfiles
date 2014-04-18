@@ -24,6 +24,10 @@ Bundle 'vim-scripts/pydoc.vim'
 " Golang
 Bundle 'Blackrush/vim-gocode'
 Bundle 'rjohnsondev/vim-compiler-go'
+" Clojure
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
 
 let mapleader=" "
 inoremap jj <ESC>
@@ -187,6 +191,9 @@ let g:user_emmet_leader_key = '<c-e>'
 " Run python (nose) tests
 map <F5> <Esc>:!clear;nosetests -d<CR>
 
+" Run make in current dir
+map <F6> <Esc>:!clear;make<CR>
+
 " Auto-pep
 map <F9> <Esc>:PymodeLintAuto<CR>
 
@@ -238,3 +245,8 @@ let g:pymode_lint_ignore = "C"
 " GO STUFF
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 let g:golang_goroot = $GOROOT
+
+
+" Clojure
+autocmd FileType clojure map <F5> <Esc>ma(cpp`a<Esc>
+autocmd FileType clojure map <F6> <Esc>:Eval (stop)<CR>
