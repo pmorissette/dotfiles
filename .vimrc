@@ -23,9 +23,17 @@ Bundle 'mattn/emmet-vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'vim-scripts/pydoc.vim'
+" Golang
+Bundle 'Blackrush/vim-gocode'
+Bundle 'rjohnsondev/vim-compiler-go'
+" Clojure
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
 
 let mapleader=" "
 inoremap jj <ESC>
+set pastetoggle=<F10>
 
 " sudo write this
 cmap W! !sudo tee % > /dev/null
@@ -183,7 +191,10 @@ let g:user_emmet_leader_key = '<c-e>'
 " PYTHON STUFF
 "
 " Run python (nose) tests
-map <F5> <Esc>:!clear;nosetests<CR>
+map <F5> <Esc>:!clear;nosetests -d<CR>
+
+" Run make in current dir
+map <F6> <Esc>:!clear;make<CR>
 
 " Auto-pep
 map <F9> <Esc>:PymodeLintAuto<CR>
@@ -250,12 +261,11 @@ let g:pymode_syntax_print_as_function = 0
 " ignoring mccabe errors
 let g:pymode_lint_ignore = "C"
 
-" GOLANG
-filetype off
-filetype plugin indent off
-set runtimepath+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
-
-" auto gofmt
+" GO STUFF
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+let g:golang_goroot = $GOROOT
+
+" Clojure
+autocmd FileType clojure map <F4> <Esc>macpp`a<Esc>
+autocmd FileType clojure map <F5> <Esc>ma(cpp`a<Esc>
+autocmd FileType clojure map <F6> <Esc>:Eval (stop)<CR>
