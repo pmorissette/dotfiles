@@ -8,24 +8,24 @@ let g:vundle_default_git_proto='git'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround.git'
 Bundle 'kien/ctrlp.vim'
-Bundle 'plasticboy/vim-markdown'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
-Bundle 'klen/python-mode'
 Bundle 'msanders/snipmate.vim'
-Bundle 'digitaltoad/vim-jade'
 Bundle 'mattn/emmet-vim'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'Blackrush/vim-gocode'
-Bundle 'vim-scripts/pydoc.vim'
-Bundle 'jiangmiao/auto-pairs'
 Bundle 'justinmk/vim-sneak'
+" Python
+Bundle 'klen/python-mode'
+Bundle 'vim-scripts/pydoc.vim'
+" Markdown
+Bundle 'plasticboy/vim-markdown'
 " Golang
 Bundle 'Blackrush/vim-gocode'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'rjohnsondev/vim-compiler-go'
 " Clojure
 Bundle 'guns/vim-clojure-static'
@@ -35,6 +35,8 @@ Bundle 'tpope/vim-classpath'
 Bundle "pangloss/vim-javascript"
 " LESS
 Bundle 'groenewege/vim-less'
+" Jade
+Bundle 'digitaltoad/vim-jade'
 
 let mapleader=" "
 inoremap jj <ESC>
