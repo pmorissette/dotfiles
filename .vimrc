@@ -17,12 +17,13 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'klen/python-mode'
 Bundle 'msanders/snipmate.vim'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mattn/emmet-vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'vim-scripts/pydoc.vim'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'justinmk/vim-sneak'
 " Golang
 Bundle 'Blackrush/vim-gocode'
 Bundle 'rjohnsondev/vim-compiler-go'
@@ -30,6 +31,10 @@ Bundle 'rjohnsondev/vim-compiler-go'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
+" Javascript
+Bundle "pangloss/vim-javascript"
+" LESS
+Bundle 'groenewege/vim-less'
 
 let mapleader=" "
 inoremap jj <ESC>
@@ -51,7 +56,7 @@ cmap w!! w !sudo tee % >/dev/null
 " leader mappings
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>e :e 
+
 " vertical and horizontal split
 nnoremap <leader>v <C-w>v
 nnoremap <leader>s <C-w>s
@@ -266,6 +271,16 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 let g:golang_goroot = $GOROOT
 
 " Clojure
-autocmd FileType clojure map <F4> <Esc>macpp`a<Esc>
-autocmd FileType clojure map <F5> <Esc>ma(cpp`a<Esc>
-autocmd FileType clojure map <F6> <Esc>:Eval (stop)<CR>
+autocmd FileType clojure map <leader>ee <Esc>:%Eval<CR>
+autocmd FileType clojure map <leader>el <Esc>ma^cpp`a<Esc>
+autocmd FileType clojure map <leader>ec <Esc>macpp`a<Esc>
+autocmd FileType clojure map <leader>ea <Esc>ma(cpp`a<Esc>
+autocmd FileType clojure map <leader>es <Esc>:Eval (if (resolve 'live/stop) (eval ((resolve 'live/stop))) (eval ((resolve 'stop))))<CR>
+autocmd FileType clojure map <leader>ej <Esc>:Eval (live/jam (var track))<CR>
+autocmd FileType clojure map <leader>ey <Esc>:Eval (live/play track)<CR>
+autocmd FileType clojure map <leader>ep <Esc>yiw<ESC>:Eval (<C-R>0)<CR>
+autocmd FileType clojure map <leader>e- <ESC>^/expand!<CR>f:lmsvt)<ESC>:s/\%V./-/g<CR>`s<ESC>:nohlsearch<CR>
+"autocmd FileType clojure map <leader>e- ^/expand! uf:lmsvt):s/\%V./-/g u`s
+
+let g:clojure_align_multiline_strings = 1
+let g:clojure_align_subforms = 1
