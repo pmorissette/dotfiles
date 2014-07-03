@@ -18,6 +18,7 @@ Bundle 'bling/vim-airline'
 Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'justinmk/vim-sneak'
+Bundle 'reedes/vim-lexical'
 " Python
 Bundle 'klen/python-mode'
 Bundle 'vim-scripts/pydoc.vim'
@@ -118,6 +119,13 @@ nmap <leader>rb :call ReloadBuffers()<CR>
 
 " pydoc
 let g:pydoc_cmd = "python -m pydoc"
+
+" vim-lexical
+augroup lexical
+    autocmd!
+    autocmd FileType markdown call lexical#init()
+    autocmd FileType rst call lexical#init()
+augroup END
 
 " ==========================================================
 " Basic Settings
