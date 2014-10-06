@@ -2,8 +2,7 @@ set nocompatible
 filetype off 		" required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-let g:vundle_default_git_proto='git'
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
@@ -38,6 +37,10 @@ Bundle "pangloss/vim-javascript"
 Bundle 'groenewege/vim-less'
 " Jade
 Bundle 'digitaltoad/vim-jade'
+
+# all plugins above this line
+call vundle#end()
+filetype plugin indent on
 
 let mapleader=" "
 inoremap jj <ESC>
