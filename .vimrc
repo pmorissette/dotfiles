@@ -5,38 +5,45 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround.git'
-Bundle 'kien/ctrlp.vim'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-repeat'
+"Bundle 'tpope/vim-surround.git'
+"Bundle 'kien/ctrlp.vim'
 "Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'msanders/snipmate.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'justinmk/vim-sneak'
-Bundle 'reedes/vim-lexical'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/nerdcommenter'
+"Bundle 'altercation/vim-colors-solarized'
+"Bundle 'bling/vim-airline'
+"Bundle 'msanders/snipmate.vim'
+"Bundle 'mattn/emmet-vim'
+"Bundle 'justinmk/vim-sneak'
+"Bundle 'reedes/vim-lexical'
+
 " Python
-Bundle 'klen/python-mode'
-Bundle 'vim-scripts/pydoc.vim'
+"Bundle 'klen/python-mode'
+"Bundle 'vim-scripts/pydoc.vim'
+
 " Markdown
-Bundle 'plasticboy/vim-markdown'
+"Bundle 'plasticboy/vim-markdown'
+
 " Golang
-Bundle 'Blackrush/vim-gocode'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'rjohnsondev/vim-compiler-go'
+"Bundle 'Blackrush/vim-gocode'
+"Bundle 'jnwhiteh/vim-golang'
+"Bundle 'rjohnsondev/vim-compiler-go'
+
 " Clojure
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
+"Bundle 'guns/vim-clojure-static'
+"Bundle 'tpope/vim-fireplace'
+"Bundle 'tpope/vim-classpath'
+
 " Javascript
-Bundle "pangloss/vim-javascript"
+"Bundle "pangloss/vim-javascript"
+
 " LESS
-Bundle 'groenewege/vim-less'
+"Bundle 'groenewege/vim-less'
+
 " Jade
-Bundle 'digitaltoad/vim-jade'
+"Bundle 'digitaltoad/vim-jade'
 
 # all plugins above this line
 call vundle#end()
