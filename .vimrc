@@ -5,23 +5,23 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'tpope/vim-repeat'
-"Bundle 'tpope/vim-surround.git'
-"Bundle 'kien/ctrlp.vim'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'scrooloose/syntastic'
-"Bundle 'scrooloose/nerdcommenter'
-"Bundle 'altercation/vim-colors-solarized'
-"Bundle 'bling/vim-airline'
-"Bundle 'msanders/snipmate.vim'
-"Bundle 'mattn/emmet-vim'
-"Bundle 'justinmk/vim-sneak'
-"Bundle 'reedes/vim-lexical'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround.git'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+Bundle 'msanders/snipmate.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'justinmk/vim-sneak'
+Bundle 'reedes/vim-lexical'
 
 " Python
-"Bundle 'klen/python-mode'
-"Bundle 'vim-scripts/pydoc.vim'
+Bundle 'klen/python-mode'
+Bundle 'vim-scripts/pydoc.vim'
 
 " Markdown
 "Bundle 'plasticboy/vim-markdown'
@@ -37,15 +37,15 @@ Bundle 'gmarik/vundle'
 "Bundle 'tpope/vim-classpath'
 
 " Javascript
-"Bundle "pangloss/vim-javascript"
+"Bundle 'pangloss/vim-javascript'
 
 " LESS
-"Bundle 'groenewege/vim-less'
+Bundle 'groenewege/vim-less'
 
 " Jade
 "Bundle 'digitaltoad/vim-jade'
 
-# all plugins above this line
+" all plugins above this line
 call vundle#end()
 filetype plugin indent on
 
@@ -304,3 +304,7 @@ autocmd FileType clojure map <leader>e- <ESC>^/expand!<CR>f:lmsvt)<ESC>:s/\%V./-
 
 let g:clojure_align_multiline_strings = 1
 let g:clojure_align_subforms = 1
+
+" HTML
+autocmd FileType html :setlocal sw=2 ts=2 sts=2
+autocmd FileType js :setlocal sw=2 ts=2 sts=2
