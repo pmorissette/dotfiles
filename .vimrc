@@ -4,46 +4,45 @@ filetype off 		" required!
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround.git'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'msanders/snipmate.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'justinmk/vim-sneak'
-Bundle 'reedes/vim-lexical'
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'msanders/snipmate.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'justinmk/vim-sneak'
+Plugin 'reedes/vim-lexical'
 
 " Python
-Bundle 'klen/python-mode'
-Bundle 'vim-scripts/pydoc.vim'
+Plugin 'klen/python-mode'
+Plugin 'vim-scripts/pydoc.vim'
 
 " Markdown
-"Bundle 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
 
 " Golang
-"Bundle 'Blackrush/vim-gocode'
-"Bundle 'jnwhiteh/vim-golang'
-"Bundle 'rjohnsondev/vim-compiler-go'
+"Plugin 'Blackrush/vim-gocode'
+"Plugin 'jnwhiteh/vim-golang'
+"Plugin 'rjohnsondev/vim-compiler-go'
 
 " Clojure
-"Bundle 'guns/vim-clojure-static'
-"Bundle 'tpope/vim-fireplace'
-"Bundle 'tpope/vim-classpath'
+"Plugin 'guns/vim-clojure-static'
+"Plugin 'tpope/vim-fireplace'
+"Plugin 'tpope/vim-classpath'
 
 " Javascript
-"Bundle 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 
 " LESS
-Bundle 'groenewege/vim-less'
+Plugin 'groenewege/vim-less'
 
 " Jade
-"Bundle 'digitaltoad/vim-jade'
+"Plugin 'digitaltoad/vim-jade'
 
 " all plugins above this line
 call vundle#end()
@@ -214,7 +213,10 @@ let g:user_emmet_leader_key = '<c-e>'
 
 
 " PYTHON STUFF
-"
+
+" Proper indentation for nerdcommenter python comments
+autocmd FileType python let g:NERDSpaceDelims = 1
+
 " Run python (nose) tests
 map <F5> <Esc>:!clear;nosetests -d<CR>
 
